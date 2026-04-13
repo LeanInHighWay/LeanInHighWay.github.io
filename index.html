@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guangdong Highway Global Supply Chain Co., Ltd.</title>
+    <!-- Element UI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Element UI JS -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            padding: 30px 0;
+            border-bottom: 3px solid #1a365d;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+        }
+        
+        .logo {
+            margin-right: 30px;
+        }
+        
+        .logo img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            color: #1a365d;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+        
+        .main-content {
+            display: flex;
+            margin-top: 0;
+        }
+        
+        .el-main {
+            flex: 1;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            font-size: 1rem;
+            color: #666;
+            background-color: #ffffff;
+        }
+        
+        .company-name {
+            font-weight: 600;
+            color: #1a365d;
+            font-size: 1.1rem;
+        }
+        
+        .el-aside {
+            width: 250px;
+            margin-right: 30px;
+            overflow: hidden;
+        }
+        
+        .el-menu-item {
+            height: 60px;
+            line-height: 60px;
+            font-size: 14px;
+            margin-bottom: 5px;
+            border-radius: 0 8px 8px 0;
+            white-space: normal;
+            text-align: left;
+            padding: 0 20px;
+        }
+        
+        .el-main {
+            flex: 1;
+            padding: 0;
+        }
+        
+        .el-card {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .el-card__header {
+            background-color: #1a365d;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .el-menu {
+            border-right: none;
+            background-color: #f8f9fa;
+        }
+        
+        .el-menu-item {
+            height: 60px;
+            line-height: 60px;
+            font-size: 14px;
+            margin-bottom: 5px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .el-menu-item:hover {
+            background-color: #e6f7ff;
+        }
+        
+        .el-menu-item.is-active {
+            background-color: #1a365d !important;
+            color: white !important;
+        }
+        
+        .el-menu-item i {
+            margin-right: 10px;
+            color: #1a365d;
+        }
+        
+        .el-menu-item.is-active i {
+            color: white;
+        }
+        
+        h2 {
+            color: #1a365d;
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            color: #1a365d;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            text-indent: 2em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .el-button--primary {
+            background-color: #1a365d;
+            border-color: #1a365d;
+        }
+        
+        .el-button--primary:hover {
+            background-color: #2c5282;
+            border-color: #2c5282;
+        }
+        
+        .service-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .service-section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .service-section h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a365d;
+            display: inline-block;
+        }
+        
+        .service-section p {
+            text-indent: 2em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .el-list {
+            margin: 20px 0;
+        }
+        
+        .el-list-item {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .el-tag {
+            margin: 15px 0;
+        }
+        
+        footer {
+            margin-top: 30px;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .company-name {
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .el-aside {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .el-menu {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .el-menu-item {
+                flex: 1 1 calc(50% - 10px);
+                margin: 5px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <img src="logo.png" alt="Guangdong Highway Global Supply Chain Logo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 4px;">
+                </div>
+                <div style="flex: 1;">
+                    <h1>{{ currentI18n.companyName }}</h1>
+                </div>
+                <div class="language-switcher">
+                    <el-button-group>
+                        <el-button :type="currentLanguage === 'en' ? 'primary' : 'default'" @click="switchLanguage('en')">English</el-button>
+                        <el-button :type="currentLanguage === 'zh' ? 'primary' : 'default'" @click="switchLanguage('zh')">中文</el-button>
+                    </el-button-group>
+                </div>
+            </header>
+            
+            <div class="main-content">
+                <el-aside width="250px">
+                    <el-menu
+                        default-active="home"
+                        class="el-menu-vertical-demo"
+                        @select="handleSelect"
+                        background-color="#f5f7fa"
+                        text-color="#303133"
+                        active-text-color="#1a365d"
+                    >
+                        <el-menu-item index="home">
+                            <i class="el-icon-s-home"></i>
+                            <span>{{ currentI18n.menu.home }}</span>
+                        </el-menu-item>
+
+                        <el-menu-item index="shippingAdvantage">
+                            <i class="el-icon-ship"></i>
+                            <span>{{ currentI18n.menu.shippingAdvantage }}</span>
+                        </el-menu-item>
+                        <el-menu-item index="bulkCarrier">
+                            <i class="el-icon-s-marketing"></i>
+                            <span>{{ currentI18n.menu.bulkCarrier }}</span>
+                        </el-menu-item>
+                        <el-menu-item index="specialContainer">
+                            <i class="el-icon-s-grid"></i>
+                            <span>{{ currentI18n.menu.specialContainer }}</span>
+                        </el-menu-item>
+                        <el-menu-item index="hongkongService">
+                            <i class="el-icon-s-flag"></i>
+                            <span>{{ currentI18n.menu.hongkongService }}</span>
+                        </el-menu-item>
+                        <el-menu-item index="domesticShipping">
+                            <i class="el-icon-s-unfold"></i>
+                            <span>{{ currentI18n.menu.domesticShipping }}</span>
+                        </el-menu-item>
+                        <el-menu-item index="contact">
+                            <i class="el-icon-s-custom"></i>
+                            <span>{{ currentI18n.menu.contact }}</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-aside>
+                
+                <el-main>
+                    <el-card v-if="activePage === 'home'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.companyName }}</h2>
+                        <el-row :gutter="20">
+                            <el-col :span="12">
+                                <el-image
+                                    src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shipping%20company%20professional%20maritime%20services%20global%20supply%20chain&image_size=landscape_16_9"
+                                    fit="cover"
+                                    style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                >
+                                </el-image>
+                            </el-col>
+                            <el-col :span="12">
+                                <p>{{ currentI18n.home.content1 }}</p>
+                            </el-col>
+                        </el-row>
+                        
+                        <el-row :gutter="20" style="margin-top: 30px;">
+                            <el-col :span="12">
+                                <p>{{ currentI18n.home.content2 }}</p>
+                            </el-col>
+                            <el-col :span="12">
+                                <el-image
+                                    src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sea-rail%20intermodal%20transportation%20inland%20logistics&image_size=landscape_16_9"
+                                    fit="cover"
+                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 20px;"
+                                >
+                                </el-image>
+                            </el-col>
+                        </el-row>
+                        
+                        <el-row :gutter="20" style="margin-top: 30px;">
+                            <el-col :span="12">
+                                <el-image
+                                    src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shipping%20modes%20WGO%20waterway%20gate%20combined%20port&image_size=landscape_16_9"
+                                    fit="cover"
+                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 20px;"
+                                >
+                                </el-image>
+                            </el-col>
+                            <el-col :span="12">
+                                <p>{{ currentI18n.home.content3 }}</p>
+                            </el-col>
+                        </el-row>
+                        
+
+                        <el-row :gutter="20" style="margin-top: 30px;">
+                            <el-col :span="8">
+                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                                    <el-image
+                                        src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=maritime%20shipping%20container%20vessels%20global%20trade%20port&image_size=square"
+                                        fit="cover"
+                                        style="width: 100%; height: 240px;"
+                                    >
+                                    </el-image>
+                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                        <div style="text-align: center;">
+                                            <h3 style="margin: 0;">{{ currentI18n.menu.shippingAdvantage }}</h3>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </el-col>
+                            <el-col :span="8">
+                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                                    <el-image
+                                        src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=bulk%20carrier%20vessel%20heavy%20cargo%20shipping&image_size=square"
+                                        fit="cover"
+                                        style="width: 100%; height: 240px;"
+                                    >
+                                    </el-image>
+                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                        <div style="text-align: center;">
+                                            <h3 style="margin: 0;">{{ currentI18n.menu.bulkCarrier }}</h3>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </el-col>
+                            <el-col :span="8">
+                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                                    <el-image
+                                        src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=special%20containers%20open%20top%20flat%20rack%20shipping%20heavy%20equipment&image_size=square"
+                                        fit="cover"
+                                        style="width: 100%; height: 240px;"
+                                    >
+                                    </el-image>
+                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
+                                        <div style="text-align: center;">
+                                            <h3 style="margin: 0;">{{ currentI18n.menu.specialContainer }}</h3>
+                                        </div>
+                                    </div>
+                                </el-card>
+                            </el-col>
+                        </el-row>
+                    </el-card>
+                    
+
+                    
+                    <el-card v-if="activePage === 'shippingAdvantage'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.shippingAdvantage }}</h2>
+                        <div class="service-section">
+                            <el-image
+                                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=maritime%20shipping%20container%20vessels%20global%20trade%20southeast%20asia%20africa%20routes&image_size=landscape_16_9"
+                                fit="cover"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                            >
+                            </el-image>
+                            <p>{{ currentI18n.shippingAdvantage.content }}</p>
+                        </div>
+                    </el-card>
+                    
+                    <el-card v-if="activePage === 'bulkCarrier'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.bulkCarrier }}</h2>
+                        <div class="service-section">
+                            <el-image
+                                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=bulk%20carrier%20vessel%20heavy%20cargo%20steel%20equipment%20transportation&image_size=landscape_16_9"
+                                fit="cover"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                            >
+                            </el-image>
+                            <p>{{ currentI18n.bulkCarrier.content }}</p>
+                        </div>
+                    </el-card>
+                    
+                    <el-card v-if="activePage === 'specialContainer'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.specialContainer }}</h2>
+                        <div class="service-section">
+                            <el-image
+                                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=special%20containers%20open%20top%20flat%20rack%20shipping%20heavy%20equipment&image_size=landscape_16_9"
+                                fit="cover"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                            >
+                            </el-image>
+                            <p>{{ currentI18n.specialContainer.content1 }}</p>
+                            <p>{{ currentI18n.specialContainer.content2 }}</p>
+                        </div>
+                    </el-card>
+                    
+                    <el-card v-if="activePage === 'hongkongService'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.hongkongService }}</h2>
+                        <div class="service-section">
+                            <el-image
+                                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hong%20kong%20port%20shipping%20containers%20trade%20freight%20professional&image_size=landscape_16_9"
+                                fit="cover"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                            >
+                            </el-image>
+                            <p>{{ currentI18n.hongkongService.content }}</p>
+                        </div>
+                    </el-card>
+                    
+                    <el-card v-if="activePage === 'domesticShipping'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.domesticShipping }}</h2>
+                        <div class="service-section">
+                            <el-image
+                                src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=domestic%20coastal%20inland%20river%20container%20shipping%20cargo&image_size=landscape_16_9"
+                                fit="cover"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                            >
+                            </el-image>
+                            <p>{{ currentI18n.domesticShipping.content1 }}</p>
+                            <h3>{{ currentI18n.domesticShipping.content2 }}</h3>
+                            <div v-for="(item, index) in currentI18n.domesticShipping.coreServices" :key="index" style="margin-bottom: 10px;">
+                                <p>{{ item }}</p>
+                            </div>
+                            <h3>{{ currentI18n.domesticShipping.content3 }}</h3>
+                            <div v-for="(item, index) in currentI18n.domesticShipping.advantages" :key="index" style="margin-bottom: 10px;">
+                                <p>{{ item }}</p>
+                            </div>
+                        </div>
+                    </el-card>
+                    
+                    <el-card v-if="activePage === 'contact'" shadow="hover">
+                        <h2 slot="header" style="margin: 0;">{{ currentI18n.menu.contact }}</h2>
+                        <h3>{{ currentI18n.contact.subtitle }}</h3>
+                        <el-descriptions :column="1">
+                            <el-descriptions-item :label="currentI18n.contact.phone">{{ currentI18n.contact.phoneDetail }}</el-descriptions-item>
+                            <el-descriptions-item :label="currentI18n.contact.mobile">{{ currentI18n.contact.mobileDetail }}</el-descriptions-item>
+                            <el-descriptions-item :label="currentI18n.contact.email">{{ currentI18n.contact.emailDetail }}</el-descriptions-item>
+                            <el-descriptions-item :label="currentI18n.contact.address">{{ currentI18n.contact.addressDetail }}</el-descriptions-item>
+                        </el-descriptions>
+                    </el-card>
+                </el-main>
+            </div>
+            
+            <footer>
+                <div class="footer-info">
+                    <div class="company-name">
+                        <p>Guangdong Highway Global Supply Chain Co., Ltd.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                activePage: 'home',
+                currentLanguage: 'en',
+                form: {
+                    email: '',
+                    subject: '',
+                    message: ''
+                },
+                i18n: {
+                    en: {
+                        companyName: 'Guangdong Highway Global Supply Chain Co., Ltd.',
+                        menu: {
+                            home: 'Home',
+                            shippingAdvantage: 'Shipping Advantage',
+                            bulkCarrier: 'Bulk Carrier Service',
+                            specialContainer: 'Special Container',
+                            hongkongService: 'Hong Kong Shipping/Air Freight',
+                            domesticShipping: 'Domestic Shipping',
+                            contact: 'Contact us'
+                        },
+                        home: {
+                            content1: 'Guangdong Highway Supply Chain Co., Ltd. is a professional freight forwarding enterprise focusing on B2B import and export logistics services, dedicated to providing efficient, stable, and integrated comprehensive logistics solutions for domestic and foreign trade enterprises. The company mainly engages in multimodal transport businesses such as sea freight, air freight, and sea-rail intermodal transport. Relying on the profound industry foundation in South China, with Shenzhen, Guangzhou and the Pearl River Delta as the core advantage areas, the booking service network fully covers major ports in East and North China, including Qingdao, Dalian, Shanghai, Jiangsu, Tianjin, Xiamen and other key port hubs.',
+                            content2: 'In terms of inland intermodal transportation, the company\'s sea-rail intermodal service has extended to Hunan, Hubei, Chongqing, Sichuan, Guangxi, Jiangxi, Guizhou and other places, realizing efficient linkage between coastal ports and inland markets. At the same time, relying on mature channel resources and professional operation capabilities, it innovatively guides characteristic shipping modes such as WGO waterway gate combined port, Hong Kong empty-to-heavy drop, and road-to-water, effectively meeting customers\' diversified and personalized cross-border logistics needs.',
+                            content3: 'With the service concept of professionalism, reliability and efficiency, Highway Supply Chain integrates global logistics resources to tailor comprehensive, one-stop cross-border logistics solutions for foreign trade enterprises, helping customers reduce costs, improve timeliness, and smooth global trade.',
+                            content4: '',
+                            content5: ''
+                        },
+                        services: {
+                            shipping: 'Shipping',
+                            yachting: 'Yachting',
+                            construction: 'Building Construction'
+                        },
+                        yachts: {
+                            content1: 'Experience the pinnacle of luxury yachting with Horizon Trails. Our yacht division offers a comprehensive range of services for discerning clients who demand the best.',
+                            content2: 'From yacht chartering to management and maintenance, we provide exceptional service that exceeds expectations.',
+                            content3: 'Our yacht services include:',
+                            services: {
+                                chartering: 'Luxury yacht chartering',
+                                management: 'Yacht management',
+                                maintenance: 'Maintenance and repair',
+                                sales: 'Yacht sales and brokerage'
+                            }
+                        },
+                        shipBuilding: {
+                            title: 'Ship Building & Dry Dock',
+                            newbuild: 'NEWBUILD CONSTRUCTION',
+                            maintenance: 'MAINTENANCE - DRY DOCK',
+                            maintenanceContent1: 'Guangdong Highway Global Supply Chain - Your Premier Maritime Service Partner',
+                            maintenanceContent2: 'Where Excellence Meets Engineering',
+                            maintenanceContent3: 'Transform your vessel\'s downtime into an investment in excellence with Guangdong Highway Global Supply Chain, your trusted partner in dry dock services.',
+                            maintenanceContent4: 'With our state-of-the-art facilities and decades of maritime expertise, we deliver maintenance that keeps your fleet operating at peak performance.',
+                            whyChoose: 'Why Industry Leaders Choose Guangdong Highway',
+                            whyChooseItems: [
+                                'Advanced 50,000 DWT capacity dry dock facilities',
+                                '24/7 comprehensive maintenance and repair services',
+                                'Industry-leading dry dock turnaround times',
+                                'Expert teams with 20+ years of maritime experience',
+                                'Strategic locations for maximum convenience',
+                                'Full compliance with international maritime standards'
+                            ],
+                            maintenanceContent5: 'From routine maintenance to complete overhauls, Guangdong Highway Global Supply Chain is your trusted partner to keep stronger, safer, and more efficient than ever.',
+                            maintenanceContent6: '"Setting New Standards in Maritime Excellence"',
+                            maintenanceContent7: 'Contact us today to schedule your vessel\'s next maintenance window.',
+                            shipSale: 'SHIP SALE & PURCHASE',
+                            shipSaleContent1: 'Guangdong Highway Global Supply Chain - Your Trusted Partner in Ship Sale & Purchase',
+                            shipSaleContent2: 'Guangdong Highway Global Supply Chain stands as your premier navigator in the complex world of ship brokerage.',
+                            shipSaleContent3: 'We blend traditional maritime values with cutting-edge market intelligence to deliver exceptional ship sale and purchase outcomes.',
+                            servicesTitle: 'Services',
+                            whyChooseTitle: 'Why Choose Guangdong Highway?',
+                            whyChooseItems2: [
+                                'Global Network: Direct access to worldwide buyers, sellers, and shipyards',
+                                'Market Intelligence: Real-time vessel valuations and market analysis',
+                                'Transaction Expertise: Seamless handling of negotiations and documentation',
+                                'Technical Excellence: In-depth understanding of vessel specifications and regulations'
+                            ],
+                            shipSaleContent4: 'From bulk carriers to tankers, container vessels to specialized ships, our experienced team ensures every transaction is executed with precision, transparency, and professionalism.',
+                            shipSaleContent5: '"Charting Your Course to Maritime Investment"',
+                            shipSaleContent6: 'Contact us today to explore how Guangdong Highway Global Supply Chain can help you navigate your next vessel acquisition or sale.'
+                        },
+                        shipManagement: {
+                            title: 'Ship Management',
+                            charterManagement: 'Charter Management',
+                            charterContent1: 'Guangdong Highway Global Supply Chain - Your Premier Ship Management Partner',
+                            charterContent2: 'Your Success is Our Priority',
+                            charterContent3: 'Why trust your vessels to a specialized upper-tier ship management service? At Guangdong Highway Global Supply Chain, we deliver more than just basic management – we provide tailored solutions that optimize performance, reduce costs, and maximize your return on investment.',
+                            globalService: 'Our Global Service',
+                            globalServiceItems: [
+                                'Global Maintenance Through Our Solid Network',
+                                'Regional Offices',
+                                'Unified Shipping Network across 6 continents',
+                                '24/7 emergency response service in all time zones'
+                            ],
+                            comprehensiveSolutions: 'Comprehensive ship management solutions',
+                            technicalManagement: 'Technical Management',
+                            whyChoose: 'Why Choose Guangdong Highway',
+                            whyChooseItems: [
+                                'Years of Excellence',
+                                'Industry-leading success rate in newbuilding supervision',
+                                'Proven track record in charter management',
+                                'Dedicated global network'
+                            ],
+                            technicalContent1: 'We provide you with a single point of contact for all technical management services, ensuring seamless operations and maximum uptime for your fleet.',
+                            technicalContent2: 'Our specialized team provides 24/7 technical support, planned maintenance programs, and emergency response services.'
+                        },
+                        commodities: {
+                            title: 'Commodities',
+                            content1: 'We are a specialized trading partner powering international commerce with expertise in energy, metals, and maritime assets. From upstream energy to raw materials and steel, we connect producers and consumers worldwide with reliability, scale, and execution excellence. We trade the essentials that drive global economies.',
+                            energy: 'Energy',
+                            energyContent: 'Crude oil, refined petroleum products, and LNG – moving molecules from source to market with deep logistics and compliance knowledge',
+                            bulkMaterials: 'Bulk Materials',
+                            bulkMaterialsContent: 'Iron Ore, Bauxite, and Coal – managing high-volume shipments with chartering optimization and port-to-port efficiency',
+                            steelMetals: 'Steel & Metals',
+                            steelMetalsContent: 'Flat, long, and semi-finished steel products – bridging mills and manufacturers across continents.',
+                            generalCargo: 'General Cargo & Breakbulk',
+                            generalCargoContent: 'Project cargo, bagged commodities, and specialized shipments requiring tailored handling',
+                            whyPartner: 'Why Partner With Us',
+                            globalNetwork: 'Global Network',
+                            globalNetworkItems: [
+                                'Direct relationships with refiners, miners, mills, and shippers across 30+ countries',
+                                'In-house chartering and operations teams ensuring on-time, cost-effective delivery'
+                            ],
+                            riskManagement: 'Risk Management',
+                            riskManagementItems: [
+                                'Hedging, trade support, and regulatory expertise protecting your supply chain reliability'
+                            ],
+                            flexibleStructuring: 'Flexible Structuring',
+                            flexibleStructuringItems: [
+                                'Spot contracts, long-term off-takes, structured finance – solutions built for your business model'
+                            ]
+                        },
+                        rockSolid: {
+                            title: 'ROCK SOLID (TM)',
+                            content1: 'Our ROCK SOLID (TM) brand represents our commitment to providing the highest quality maritime services with unwavering reliability and excellence.',
+                            content2: 'With decades of experience in the industry, we have built a reputation for delivering exceptional results even in the most challenging conditions.',
+                            content3: 'Our ROCK SOLID (TM) services include:',
+                            services: [
+                                'Maritime consulting',
+                                'Technical expertise',
+                                'Project management',
+                                'Quality assurance'
+                            ]
+                        },
+                        contact: {
+                            title: 'Contact page',
+                            subtitle: 'LET\'S GET IN TOUCH WITH US',
+                            phone: 'TEL',
+                            mobile: 'Mobile',
+                            email: 'Email',
+                            address: 'Address',
+                            phoneDetail: '0756-8656536',
+                            mobileDetail: '+86-13418148857 (Add WhatsApp)',
+                            addressDetail: 'Room 905, Building 18, Xiangzhou INNOVATION HARBOR Center, No. 199 Weikang Road, Xiangzhou District, Zhuhai City, Guangdong Province',
+                            emailDetail: 'lean@highway-sc.com'
+                        }
+                    },
+                    zh: {
+                        companyName: '广东环翼供应链有限公司',
+                        menu: {
+                            home: '首页',
+                            shippingAdvantage: '海运优势',
+                            bulkCarrier: '散杂船服务',
+                            specialContainer: '专业特种柜',
+                            hongkongService: '香港起步的海运/空运',
+                            domesticShipping: '内贸海运',
+                            contact: '联系我们'
+                        },
+                        home: {
+                            content1: '广东环翼供应链有限公司是一家专注于B2B 进出口物流服务的专业货运代理企业，致力于为国内外贸企业提供高效、稳定、一体化的综合物流解决方案。公司主营海运、空运、海铁联运等多式联运业务，依托华南地区深厚的行业基础，以深圳、广州及珠三角为核心优势区域，订舱服务网络全面覆盖华东、华北主要口岸，包括青岛、大连、上海、江苏、天津、厦门等重点港口枢纽。',
+                            content2: '在内陆联运方面，公司海铁联运服务已延伸至湖南、湖北、重庆、四川、广西、江西、贵州等多地，实现沿海口岸与内陆市场的高效联动。同时，凭借成熟的渠道资源与专业操作能力，创新引导WGO 水路闸口组合港、香港吉上重落、路改水等特色海运模式，有效满足客户多样化、个性化的跨境物流需求。',
+                            content3: '环翼供应链以专业、可靠、高效为服务理念，整合全球物流资源，为外贸企业量身定制全方位、一站式的跨境物流方案，助力客户降低成本、提升时效、畅通全球贸易。',
+                            content4: '',
+                            content5: ''
+                        },
+                        services: {
+                            shipping: '航运服务',
+                            yachting: '游艇服务',
+                            construction: '建筑施工'
+                        },
+                        yachts: {
+                            content1: '体验 Horizon Trails 为您呈现的奢华游艇服务。我们的游艇部门专为追求极致体验的客户提供全方位、个性化的定制服务。',
+                            content2: '从豪华游艇租赁到专业管理与维护，我们致力于为您打造超越期待的卓越服务体验。',
+                            content3: '我们的游艇服务包括：',
+                            services: {
+                                chartering: '豪华游艇租赁',
+                                management: '专业游艇管理',
+                                maintenance: '精细维护与检修',
+                                sales: '游艇销售与经纪服务'
+                            }
+                        },
+                        shipBuilding: {
+                            title: '船舶建造与干船坞',
+                            newbuild: '新建船舶建造',
+                            maintenance: '干船坞维护',
+                            maintenanceContent1: '广东环翼供应链 — 您值得信赖的海事服务伙伴',
+                            maintenanceContent2: '卓越品质与专业工程的完美结合',
+                            maintenanceContent3: '让您的船舶停航时间转化为价值投资，选择广东环翼供应链作为您可靠的干船坞服务合作伙伴。',
+                            maintenanceContent4: '依托先进设施与丰富海事专业经验，我们的维护服务确保您的船队始终保持最佳运营状态。',
+                            whyChoose: '行业领袖为何选择广东环翼供应链',
+                            whyChooseItems: [
+                                '先进的 50,000 载重吨干船坞设施',
+                                '全天候 24/7 维护与维修服务',
+                                '行业领先的干船坞周转效率',
+                                '拥有丰富海事经验的专家团队',
+                                '战略布局的服务网络，提供最大便利',
+                                '完全符合国际海事标准规范'
+                            ],
+                            maintenanceContent5: '从日常维护到全面检修，广东环翼供应链始终是您值得信赖的合作伙伴，让您的船队更加强健、安全、高效。',
+                            maintenanceContent6: '「树立海事服务卓越新标杆」',
+                            maintenanceContent7: '立即联系我们，为您的船舶安排下一次维护计划。',
+                            shipSale: '船舶买卖',
+                            shipSaleContent1: '广东环翼供应链 — 您可信赖的船舶交易伙伴',
+                            shipSaleContent2: '在复杂的船舶经纪领域，广东环翼供应链是您最可靠的领航者。',
+                            shipSaleContent3: '我们将传统海事价值观与前沿市场情报相结合，为您提供卓越的船舶交易服务。',
+                            servicesTitle: '服务内容',
+                            whyChooseTitle: '为何选择广东环翼供应链？',
+                            whyChooseItems2: [
+                                '全球网络：直接对接全球买家、卖家与造船厂',
+                                '市场洞察：实时船舶估值与市场分析',
+                                '交易专业：无缝处理谈判与文件流程',
+                                '技术专长：深入掌握船舶规格与法规要求'
+                            ],
+                            shipSaleContent4: '无论是散货船、油轮、集装箱船还是专业船舶，我们经验丰富的团队确保每笔交易都以精准、透明、专业的方式执行。',
+                            shipSaleContent5: '「为您的海事投资规划最优航线」',
+                            shipSaleContent6: '立即联系我们，探索广东环翼供应链如何协助您顺利完成下一次船舶收购或出售。'
+                        },
+                        shipManagement: {
+                            title: '船舶管理',
+                            charterManagement: '租船管理',
+                            charterContent1: '广东环翼供应链 — 您的专业船舶管理伙伴',
+                            charterContent2: '您的成功是我们的首要目标',
+                            charterContent3: '为何选择专业的高端船舶管理服务？在广东环翼供应链，我们提供的不仅是基础管理，更是为您量身定制的解决方案，旨在优化性能、降低成本并最大化投资回报。',
+                            globalService: '我们的全球服务网络',
+                            globalServiceItems: [
+                                '通过稳固的全球网络提供维护服务',
+                                '遍布全球的区域办事机构',
+                                '覆盖六大洲的统一航运网络',
+                                '全天候 24/7 跨时区紧急响应服务'
+                            ],
+                            comprehensiveSolutions: '全面的船舶管理解决方案',
+                            technicalManagement: '技术管理',
+                            whyChoose: '为何选择广东环翼供应链',
+                            whyChooseItems: [
+                                '丰富的行业卓越经验',
+                                '新船监造领域行业领先的成功率',
+                                '租船管理方面的可靠服务记录',
+                                '专为客户打造的全球服务网络'
+                            ],
+                            technicalContent1: '我们为您提供所有技术管理服务的单一联系点，确保船队运营无缝衔接，实现最大化运营时间。',
+                            technicalContent2: '我们的专业团队全天候提供技术支持、制定计划维护方案，并随时响应紧急情况。'
+                        },
+                        commodities: {
+                            title: '大宗商品',
+                            content1: '我们是专业的贸易合作伙伴，凭借在能源、金属和海事资产领域的专业知识，为国际商业活动注入强大动力。从上游能源到原材料和钢铁，我们以可靠性、规模优势和执行卓越性，连接全球生产者与消费者。我们交易的是驱动全球经济的核心物资。',
+                            energy: '能源产品',
+                            energyContent: '原油、精炼石油产品和液化天然气 — 凭借深厚的物流专业知识和合规经验，将能源从源头高效运抵市场',
+                            bulkMaterials: '散装材料',
+                            bulkMaterialsContent: '铁矿石、铝土矿和煤炭 — 通过优化租船安排和提升港到港运输效率，管理高容量货物运输',
+                            steelMetals: '钢铁与金属',
+                            steelMetalsContent: '扁平材、长材和半制成品钢材 — 搭建起各大洲钢厂与制造商之间的桥梁。',
+                            generalCargo: '普通货物与散杂货',
+                            generalCargoContent: '项目货物、袋装商品和需要特殊处理的专业运输需求',
+                            whyPartner: '为何选择与我们合作',
+                            globalNetwork: '全球网络优势',
+                            globalNetworkItems: [
+                                '与 30 多个国家的炼油厂、矿山、钢厂和船东建立直接合作关系',
+                                '内部专业租船和运营团队确保货物准时、高性价比交付'
+                            ],
+                            riskManagement: '风险管理',
+                            riskManagementItems: [
+                                '通过对冲策略、贸易支持和监管专业知识，全方位保障您的供应链可靠性'
+                            ],
+                            flexibleStructuring: '灵活合作结构',
+                            flexibleStructuringItems: [
+                                '现货合同、长期承购协议、结构化融资 — 为您的特定业务模式量身定制解决方案'
+                            ]
+                        },
+                        rockSolid: {
+                            title: '磐石服务 (ROCK SOLID)',
+                            content1: '我们的「磐石服务 (ROCK SOLID)」品牌承载着我们对最高品质海事服务的承诺，彰显着坚定不移的可靠性与卓越品质。',
+                            content2: '凭借数十年行业深耕经验，我们建立了卓越声誉，即使在最具挑战的条件下，也能始终交付出色成果。',
+                            content3: '我们的「磐石服务」涵盖：',
+                            services: [
+                                '专业海事咨询',
+                                '尖端技术支持',
+                                '全方位项目管理',
+                                '严格质量保证体系'
+                            ]
+                        },
+                        contact: {
+                            title: '联系我们',
+                            subtitle: '期待与您取得联系',
+                            phone: '固话',
+                            mobile: '联系人',
+                            email: '邮箱',
+                            address: '地址',
+                            phoneDetail: '0756-8656536',
+                            mobileDetail: '+86-13418148857（微信同号）',
+                            addressDetail: '广东省珠海市香洲区卫康路199号香洲创港中心18栋905',
+                            emailDetail: 'lean@highway-sc.com'
+                        },
+                        shippingAdvantage: {
+                            title: '海运优势',
+                            content: '公司长期深耕东南亚、非洲核心海运航线，凭借稳定且充足的货量规模优势，与 EMC、MSC、OOCL、CMA、PIL 等全球头部船公司达成深度战略合作，享有优先订舱、稳定舱位保障及极具竞争力的优势运价。航线布局方面，东南亚覆盖印尼、越南、柬埔寨、马来西亚、菲律宾等重点国家及核心港口；非洲区域则在 达累斯萨拉姆Dar-es-Salaam、蒙巴萨Mombasa 等关键港口具备长期优势价格与专属渠道资源。'
+                        },
+                        bulkCarrier: {
+                            title: '散杂船服务',
+                            content: '我司专业提供全球散杂船一站式综合物流服务，可承接大宗散货、件杂货、钢材、机械设备、车辆及各类超限大件货物运输。服务覆盖全球主要航线，公司依托丰富的船型资源与专业操作团队，可灵活提供整船、整舱及拼舱服务，船舶配备船吊，可适配各类港口及偏港作业，有效突破集装箱在尺寸、重量及装载形式上的限制。我们凭借稳定货量与行业口碑，与多家优质船东保持长期合作，舱位保障充足，运价竞争力突出。'
+                        },
+                        specialContainer: {
+                            title: '专业特种柜',
+                            content1: '专注特种柜货物全球订舱业务，深度覆盖开顶柜、框架柜、平板柜、冷藏柜等全品类柜型，精准匹配各类异型、超限、重型货物出运需求。同步提供超大件 / 重型设备全程运输、专业绑扎加固、标准化港口操作、高效报关报检、全程货运保险等全链条一体化服务，实现货物从出厂到目的港全流程闭环管控、专业护航。',
+                            content2: '依托资深项目物流团队、优质船东资源及成熟口岸操作体系，以安全为基石、以高效为准则、以经济为目标，为工程项目建设、大宗商品贸易、成套设备出口等企业，量身定制专属大件运输及特种物流方案，全力保障货物运输安全、提升物流时效、优化综合成本，助力客户跨境业务高效通达、海外项目稳步落地。'
+                        },
+                        hongkongService: {
+                            title: '香港起步的海运/空运',
+                            content: '专注香港起步海运与空运专线，携手香港知名船司、航司深度合作；依托香港自由港优势，凭借密集航线、高效通关及成熟监管体系，承接危险品、带电货物等高要求出口物流，以规范操作提供安全可靠的跨境运输解决方案。'
+                        },
+                        domesticShipping: {
+                            title: '内贸海运',
+                            content1: '专业提供国内沿海及内河集装箱海运服务，涵盖门到门、港到港、舱位预订、拖车港口操作及全程保险一站式物流。',
+                            content2: '核心服务',
+                            coreServices: [
+                                '整柜海运：20GP/40GP/40HQ 全国港口往返'
+                            ],
+                            content3: '服务优势',
+                            advantages: [
+                                '成本更优：较长途陆运显著降低综合物流成本',
+                                '安全可靠：集装箱密封运输，全程可追踪'
+                            ]
+                        }
+                    },
+                    en: {
+                        companyName: 'Guangdong Highway Global Supply Chain Co., Ltd.',
+                        menu: {
+                            home: 'Home',
+                            shippingAdvantage: 'Shipping Advantage',
+                            bulkCarrier: 'Bulk Carrier Service',
+                            specialContainer: 'Special Container',
+                            hongkongService: 'Hong Kong Shipping/Air Freight',
+                            domesticShipping: 'Domestic Shipping',
+                            contact: 'Contact us'
+                        },
+                        home: {
+                            content1: 'Guangdong Highway Supply Chain Co., Ltd. is a professional freight forwarding enterprise focusing on B2B import and export logistics services, dedicated to providing efficient, stable, and integrated comprehensive logistics solutions for domestic and foreign trade enterprises. The company mainly engages in multimodal transport businesses such as sea freight, air freight, and sea-rail intermodal transport. Relying on the profound industry foundation in South China, with Shenzhen, Guangzhou and the Pearl River Delta as the core advantage areas, the booking service network fully covers major ports in East and North China, including Qingdao, Dalian, Shanghai, Jiangsu, Tianjin, Xiamen and other key port hubs.',
+                            content2: 'In terms of inland intermodal transportation, the company\'s sea-rail intermodal service has extended to Hunan, Hubei, Chongqing, Sichuan, Guangxi, Jiangxi, Guizhou and other places, realizing efficient linkage between coastal ports and inland markets. At the same time, relying on mature channel resources and professional operation capabilities, it innovatively guides characteristic shipping modes such as WGO waterway gate combined port, Hong Kong empty-to-heavy drop, and road-to-water, effectively meeting customers\' diversified and personalized cross-border logistics needs.',
+                            content3: 'With the service concept of professionalism, reliability and efficiency, Highway Supply Chain integrates global logistics resources to tailor comprehensive, one-stop cross-border logistics solutions for foreign trade enterprises, helping customers reduce costs, improve timeliness, and smooth global trade.',
+                            content4: '',
+                            content5: ''
+                        },
+                        services: {
+                            shipping: 'Shipping',
+                            yachting: 'Yachting',
+                            construction: 'Building Construction'
+                        },
+                        contact: {
+                            title: 'Contact page',
+                            subtitle: 'LET\'S GET IN TOUCH WITH US',
+                            phone: 'TEL',
+                            mobile: 'Mobile',
+                            email: 'Email',
+                            address: 'Address',
+                            phoneDetail: '0756-8656536',
+                            mobileDetail: '+86-13418148857 (Add WhatsApp)',
+                            addressDetail: 'Room 905, Building 18, Xiangzhou INNOVATION HARBOR Center, No. 199 Weikang Road, Xiangzhou District, Zhuhai City, Guangdong Province',
+                            emailDetail: 'lean@highway-sc.com'
+                        },
+                        shippingAdvantage: {
+                            title: 'Shipping Advantage',
+                            content: 'The company has long been deeply involved in core shipping routes in Southeast Asia and Africa. Relying on stable and sufficient cargo volume advantages, it has established in-depth strategic cooperation with global leading shipping companies such as EMC, MSC, OOCL, CMA, and PIL, enjoying priority booking, stable space guarantee, and highly competitive favorable rates. In terms of route layout, Southeast Asia covers key countries and core ports such as Indonesia, Vietnam, Cambodia, Malaysia, and the Philippines; in the African region, it has long-term advantageous prices and exclusive channel resources at key ports such as Dar-es-Salaam and Mombasa.'
+                        },
+                        bulkCarrier: {
+                            title: 'Bulk Carrier Service',
+                            content: 'We professionally provide one-stop comprehensive logistics services for global bulk carriers, capable of undertaking transportation of bulk cargo, general cargo, steel, mechanical equipment, vehicles, and various oversized cargoes. The service covers major global routes. Relying on rich ship type resources and professional operation teams, the company can flexibly provide full ship, full cabin, and consolidated cabin services. The ships are equipped with ship cranes, which can adapt to various ports and remote port operations, effectively breaking through the limitations of containers in terms of size, weight, and loading form. With stable cargo volume and industry reputation, we maintain long-term cooperation with multiple high-quality shipowners, ensuring sufficient space and competitive rates.'
+                        },
+                        specialContainer: {
+                            title: 'Special Container',
+                            content1: 'Focusing on global booking business for special container cargo, deeply covering all types of containers such as open-top containers, flat-rack containers, platform containers, and refrigerated containers, precisely matching the export needs of various special-shaped, oversized, and heavy cargoes. Simultaneously providing full-chain integrated services such as door-to-door transportation of oversized/heavy equipment, professional lashing and reinforcement, standardized port operations, efficient customs declaration and inspection, and comprehensive cargo insurance, realizing closed-loop control and professional escort of goods from factory to destination port.',
+                            content2: 'Relying on a senior project logistics team, high-quality shipowner resources, and a mature port operation system, with safety as the foundation, efficiency as the criterion, and economy as the goal, we tailor exclusive heavy cargo transportation and special logistics solutions for enterprises such as engineering project construction, bulk commodity trade, and complete equipment export, fully ensuring cargo transportation safety, improving logistics efficiency, optimizing comprehensive costs, and helping customers\' cross-border business to reach efficiently and overseas projects to land steadily.'
+                        },
+                        hongkongService: {
+                            title: 'Hong Kong Shipping/Air Freight',
+                            content: 'Focusing on Hong Kong-origin sea and air freight dedicated lines, in-depth cooperation with well-known Hong Kong shipping companies and airlines; relying on the advantages of Hong Kong\'s free port, with dense routes, efficient customs clearance, and mature regulatory systems, undertaking high-demand export logistics such as dangerous goods and lithium battery goods, providing safe and reliable cross-border transportation solutions with standardized operations.'
+                        },
+                        domesticShipping: {
+                            title: 'Domestic Shipping',
+                            content1: 'Professionally providing domestic coastal and inland river container shipping services, covering one-stop logistics including door-to-door, port-to-port, space booking, trailer, packing and reinforcement, port operations, and comprehensive insurance.',
+                            content2: 'Core Services',
+                            coreServices: [
+                                'Full container shipping: 20GP/40GP/40HQ round-trip at national ports',
+                                'Special transportation: flat-rack containers and open-top containers for large equipment, steel and other heavy cargoes',
+                                'Door-to-door service: one-stop connection for pickup, loading, shipping, and delivery',
+                                'Supporting services: lashing and reinforcement, warehousing and transshipment, full-process tracking, cargo insurance'
+                            ],
+                            content3: 'Service Advantages',
+                            advantages: [
+                                'Better cost: significantly reduce comprehensive logistics costs compared to long-distance land transportation',
+                                'Safe and reliable: container sealed transportation, fully trackable'
+                            ]
+                        }
+                    }
+                }
+            },
+            computed: {
+                currentI18n() {
+                    return this.i18n[this.currentLanguage];
+                }
+            },
+            methods: {
+                handleSelect(key, keyPath) {
+                    this.activePage = key;
+                },
+                submitForm() {
+                    this.$message({
+                        message: this.currentLanguage === 'en' ? 'Message sent successfully!' : '消息发送成功！',
+                        type: 'success'
+                    });
+                    // Reset form
+                    this.form = {
+                        email: '',
+                        subject: '',
+                        message: ''
+                    };
+                },
+                switchLanguage(lang) {
+                    this.currentLanguage = lang;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
