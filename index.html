@@ -105,7 +105,7 @@
             font-size: 1.1rem;
         }
         
-        .el-aside {
+        .aside {
             width: 250px;
             margin-right: 30px;
             overflow: hidden;
@@ -124,7 +124,7 @@
         
         .el-main {
             flex: 1;
-            padding: 0;
+            padding: 20px;
         }
         
         .el-card {
@@ -197,9 +197,148 @@
             border-color: #2c5282;
         }
         
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px 0;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .logo img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .aside {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .el-menu-item {
+                height: 50px;
+                line-height: 50px;
+                font-size: 13px;
+                padding: 0 15px;
+            }
+            
+            .el-main {
+                padding: 20px;
+            }
+            
+            .service-section img {
+                height: 200px !important;
+            }
+            
+            /* 移动端图片居中 */
+            .service-section img {
+                display: block;
+                margin: 5px auto 5px auto;
+            }
+            
+            /* 减少移动端服务 section 的内边距 */
+            .service-section {
+                padding: 5px;
+            }
+            
+            /* 减少移动端段落间距 */
+            .service-section p {
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2rem;
+            }
+            
+            .logo img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .el-menu-item {
+                height: 45px;
+                line-height: 45px;
+                font-size: 12px;
+            }
+            
+            .el-main {
+                padding: 15px;
+            }
+            
+            .service-section img {
+                height: 150px !important;
+                display: block;
+                margin: 5px auto 5px auto;
+            }
+            
+            /* 减少移动端服务 section 的内边距 */
+            .service-section {
+                padding: 5px;
+            }
+            
+            /* 减少移动端段落间距 */
+            .service-section p {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* 移动端布局优化 */
+        @media (max-width: 768px) {
+            .container {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .aside {
+                width: 100% !important;
+            }
+            
+            .el-menu {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+            
+            .el-menu-item {
+                flex: 1 1 calc(50% - 10px);
+                margin: 5px;
+                text-align: center;
+                border-radius: 8px;
+            }
+            
+            .el-main {
+                width: 100% !important;
+            }
+        }
+        
         .service-section {
-            margin-bottom: 40px;
-            padding: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
             background-color: #f9f9f9;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -208,7 +347,7 @@
         .service-section img {
             max-width: 100%;
             height: auto;
-            margin: 20px 0;
+            margin: 5px 0 10px 0;
             border-radius: 4px;
         }
         
@@ -262,7 +401,7 @@
                 flex-direction: column;
             }
             
-            .el-aside {
+            .aside {
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 20px;
@@ -286,7 +425,7 @@
         <div class="container">
             <header>
                 <div class="logo">
-                    <img src="logo.jpg" alt="Guangdong Highway Global Supply Chain Logo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 4px;">
+                    <img src="logo.jpg" alt="Guangdong Highway Global Supply Chain Logo" style="width: 120px; height: 120px; object-fit: cover; border-radius: 4px;">
                 </div>
                 <div style="flex: 1;">
                     <h1>{{ currentI18n.companyName }}</h1>
@@ -300,7 +439,7 @@
             </header>
             
             <div class="main-content">
-                <el-aside width="250px">
+                <el-aside class="aside">
                     <el-menu
                         default-active="home"
                         class="el-menu-vertical-demo"
@@ -349,7 +488,7 @@
                                 <el-image
                                     src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shipping%20company%20professional%20maritime%20services%20global%20supply%20chain&image_size=landscape_16_9"
                                     fit="cover"
-                                    style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                    style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                                 >
                                 </el-image>
                             </el-col>
@@ -366,7 +505,7 @@
                                 <el-image
                                     src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=sea-rail%20intermodal%20transportation%20inland%20logistics&image_size=landscape_16_9"
                                     fit="cover"
-                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 20px;"
+                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 10px;"
                                 >
                                 </el-image>
                             </el-col>
@@ -377,7 +516,7 @@
                                 <el-image
                                     src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=shipping%20modes%20WGO%20waterway%20gate%20combined%20port&image_size=landscape_16_9"
                                     fit="cover"
-                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 20px;"
+                                    style="width: 100%; height: 200px; border-radius: 8px; margin-bottom: 10px;"
                                 >
                                 </el-image>
                             </el-col>
@@ -388,47 +527,47 @@
                         
 
                         <el-row :gutter="20" style="margin-top: 30px;">
-                            <el-col :span="8">
-                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                            <el-col :span="8" :xs="12" :sm="8" :md="8" :lg="8" style="padding: 0 15px;">
+                                <el-card shadow="hover" style="height: 360px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
                                     <el-image
                                         src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=maritime%20shipping%20container%20vessels%20global%20trade%20port&image_size=square"
                                         fit="cover"
                                         style="width: 100%; height: 240px;"
                                     >
                                     </el-image>
-                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="text-align: center;">
-                                            <h3 style="margin: 0;">{{ currentI18n.menu.shippingAdvantage }}</h3>
+                                    <div style="padding: 30px; flex: 1; display: flex; align-items: center; justify-content: center;">
+                                        <div style="text-align: center; padding: 0 25px; white-space: normal; word-break: keep-all;">
+                                            <h3 style="margin: 0; font-size: 18px; line-height: 1.4;">{{ currentI18n.menu.shippingAdvantage }}</h3>
                                         </div>
                                     </div>
                                 </el-card>
                             </el-col>
-                            <el-col :span="8">
-                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                            <el-col :span="8" :xs="12" :sm="8" :md="8" :lg="8" style="padding: 0 15px;">
+                                <el-card shadow="hover" style="height: 360px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
                                     <el-image
                                         src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=bulk%20carrier%20vessel%20heavy%20cargo%20shipping&image_size=square"
                                         fit="cover"
                                         style="width: 100%; height: 240px;"
                                     >
                                     </el-image>
-                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="text-align: center;">
-                                            <h3 style="margin: 0;">{{ currentI18n.menu.bulkCarrier }}</h3>
+                                    <div style="padding: 20px; flex: 1; display: flex; align-items: flex-start; justify-content: center;">
+                                        <div style="text-align: center; padding: 0 25px; white-space: normal; word-break: keep-all; margin-top: 10px;">
+                                            <h3 style="margin: 0; font-size: 16px; line-height: 1.4;">{{ currentI18n.menu.bulkCarrier }}</h3>
                                         </div>
                                     </div>
                                 </el-card>
                             </el-col>
-                            <el-col :span="8">
-                                <el-card shadow="hover" style="height: 340px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden;">
+                            <el-col :span="8" :xs="12" :sm="8" :md="8" :lg="8" style="padding: 0 15px;">
+                                <el-card shadow="hover" style="height: 360px; display: flex; flex-direction: column; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
                                     <el-image
                                         src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=special%20containers%20open%20top%20flat%20rack%20shipping%20heavy%20equipment&image_size=square"
                                         fit="cover"
                                         style="width: 100%; height: 240px;"
                                     >
                                     </el-image>
-                                    <div style="padding: 30px 25px; height: 100px; display: flex; align-items: center; justify-content: center;">
-                                        <div style="text-align: center;">
-                                            <h3 style="margin: 0;">{{ currentI18n.menu.specialContainer }}</h3>
+                                    <div style="padding: 30px; flex: 1; display: flex; align-items: center; justify-content: center;">
+                                        <div style="text-align: center; padding: 0 25px; white-space: normal; word-break: keep-all;">
+                                            <h3 style="margin: 0; font-size: 18px; line-height: 1.4;">{{ currentI18n.menu.specialContainer }}</h3>
                                         </div>
                                     </div>
                                 </el-card>
@@ -444,7 +583,7 @@
                             <el-image
                                 src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=maritime%20shipping%20container%20vessels%20global%20trade%20southeast%20asia%20africa%20routes&image_size=landscape_16_9"
                                 fit="cover"
-                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                             >
                             </el-image>
                             <p>{{ currentI18n.shippingAdvantage.content }}</p>
@@ -457,7 +596,7 @@
                             <el-image
                                 src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=bulk%20carrier%20vessel%20heavy%20cargo%20steel%20equipment%20transportation&image_size=landscape_16_9"
                                 fit="cover"
-                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                             >
                             </el-image>
                             <p>{{ currentI18n.bulkCarrier.content }}</p>
@@ -470,7 +609,7 @@
                             <el-image
                                 src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=special%20containers%20open%20top%20flat%20rack%20shipping%20heavy%20equipment&image_size=landscape_16_9"
                                 fit="cover"
-                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                             >
                             </el-image>
                             <p>{{ currentI18n.specialContainer.content1 }}</p>
@@ -484,7 +623,7 @@
                             <el-image
                                 src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=hong%20kong%20port%20shipping%20containers%20trade%20freight%20professional&image_size=landscape_16_9"
                                 fit="cover"
-                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                             >
                             </el-image>
                             <p>{{ currentI18n.hongkongService.content }}</p>
@@ -497,7 +636,7 @@
                             <el-image
                                 src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=domestic%20coastal%20inland%20river%20container%20shipping%20cargo&image_size=landscape_16_9"
                                 fit="cover"
-                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 20px;"
+                                style="width: 100%; height: 300px; border-radius: 8px; margin-bottom: 10px;"
                             >
                             </el-image>
                             <p>{{ currentI18n.domesticShipping.content1 }}</p>
@@ -552,16 +691,16 @@
                         menu: {
                             home: 'Home',
                             shippingAdvantage: 'Shipping Advantage',
-                            bulkCarrier: 'Bulk Carrier Service',
+                            bulkCarrier: 'Bulk Carrier',
                             specialContainer: 'Special Container',
                             hongkongService: 'Hong Kong Shipping/Air Freight',
                             domesticShipping: 'Domestic Shipping',
                             contact: 'Contact us'
                         },
                         home: {
-                            content1: 'Guangdong Highway Supply Chain Co., Ltd. is a professional freight forwarding enterprise focusing on B2B import and export logistics services, dedicated to providing efficient, stable, and integrated comprehensive logistics solutions for domestic and foreign trade enterprises. The company mainly engages in multimodal transport businesses such as sea freight, air freight, and sea-rail intermodal transport. Relying on the profound industry foundation in South China, with Shenzhen, Guangzhou and the Pearl River Delta as the core advantage areas, the booking service network fully covers major ports in East and North China, including Qingdao, Dalian, Shanghai, Jiangsu, Tianjin, Xiamen and other key port hubs.',
-                            content2: 'In terms of inland intermodal transportation, the company\'s sea-rail intermodal service has extended to Hunan, Hubei, Chongqing, Sichuan, Guangxi, Jiangxi, Guizhou and other places, realizing efficient linkage between coastal ports and inland markets. At the same time, relying on mature channel resources and professional operation capabilities, it innovatively guides characteristic shipping modes such as WGO waterway gate combined port, Hong Kong empty-to-heavy drop, and road-to-water, effectively meeting customers\' diversified and personalized cross-border logistics needs.',
-                            content3: 'With the service concept of professionalism, reliability and efficiency, Highway Supply Chain integrates global logistics resources to tailor comprehensive, one-stop cross-border logistics solutions for foreign trade enterprises, helping customers reduce costs, improve timeliness, and smooth global trade.',
+                            content1: 'Guangdong Highway Supply Chain Co., Ltd. is a professional freight forwarder focusing on B2B import/export logistics. We provide efficient, stable, and integrated logistics solutions for trade enterprises, specializing in sea freight, air freight, and sea-rail intermodal transport. Based in South China (Shenzhen, Guangzhou, Pearl River Delta), our booking network covers major ports in East and North China, including Qingdao, Dalian, Shanghai, Jiangsu, Tianjin, and Xiamen.',
+                            content2: 'Our sea-rail intermodal service extends to Hunan, Hubei, Chongqing, Sichuan, Guangxi, Jiangxi, and Guizhou, linking coastal ports with inland markets. We also offer innovative shipping modes like WGO waterway gate combined port, Hong Kong empty-to-heavy drop, and road-to-water to meet diverse customer needs.',
+                            content3: 'With a focus on professionalism, reliability, and efficiency, we integrate global logistics resources to create one-stop cross-border solutions, helping customers reduce costs, improve timeliness, and streamline global trade.',
                             content4: '',
                             content5: ''
                         },
@@ -691,6 +830,39 @@
                             mobileDetail: '+86-13418148857 (Add WhatsApp)',
                             addressDetail: 'Room 905, Building 18, Xiangzhou INNOVATION HARBOR Center, No. 199 Weikang Road, Xiangzhou District, Zhuhai City, Guangdong Province',
                             emailDetail: 'lean@highway-sc.com'
+                        },
+                        shippingAdvantage: {
+                            title: 'Shipping Advantage',
+                            content: 'We specialize in Southeast Asia and Africa shipping routes, with strong partnerships with top carriers (EMC, MSC, OOCL, CMA, PIL) for priority booking, stable space, and competitive rates. Our network covers key ports in Indonesia, Vietnam, Cambodia, Malaysia, Philippines, as well as Dar-es-Salaam and Mombasa in Africa.'
+                        },
+                        bulkCarrier: {
+                            title: 'Bulk Carrier',
+                            content: 'We offer one-stop logistics services for global bulk carriers, handling bulk cargo, general cargo, steel, machinery, vehicles, and oversized items. Our global route coverage includes flexible options like full ship, full cabin, and consolidated services. Equipped with ship cranes, we can operate at various ports, overcoming container limitations. Our strong shipowner relationships ensure sufficient space and competitive rates.'
+                        },
+                        specialContainer: {
+                            title: 'Special Container',
+                            content1: 'We focus on global special container booking, covering open-top, flat-rack, platform, and refrigerated containers for special-shaped, oversized, and heavy cargo. We provide door-to-door transport, professional lashing, standardized port operations, efficient customs clearance, and cargo insurance, ensuring full control from factory to destination.',
+                            content2: 'Our senior project logistics team and strong resources deliver tailored heavy cargo and special logistics solutions for engineering, bulk trade, and equipment export. We prioritize safety, efficiency, and cost-effectiveness, ensuring secure transport, improved logistics efficiency, and optimized costs for your cross-border business.'
+                        },
+                        hongkongService: {
+                            title: 'Hong Kong Shipping/Air Freight',
+                            content: 'We specialize in Hong Kong-origin sea and air freight, partnering with top local carriers. Leveraging Hong Kong\'s free port advantages, we handle high-demand exports like dangerous goods and lithium batteries with efficient customs clearance and standardized operations.'
+                        },
+                        domesticShipping: {
+                            title: 'Domestic Shipping',
+                            content1: 'We provide domestic coastal and inland river container shipping with one-stop services: door-to-door, port-to-port, space booking, trailer, packing, port operations, and insurance.',
+                            content2: 'Core Services',
+                            coreServices: [
+                                'Full container shipping: 20GP/40GP/40HQ round-trip at national ports',
+                                'Special transportation: flat-rack containers and open-top containers for large equipment, steel and other heavy cargoes',
+                                'Door-to-door service: one-stop connection for pickup, loading, shipping, and delivery',
+                                'Supporting services: lashing and reinforcement, warehousing and transshipment, full-process tracking, cargo insurance'
+                            ],
+                            content3: 'Service Advantages',
+                            advantages: [
+                                'Better cost: significantly reduce comprehensive logistics costs compared to long-distance land transportation',
+                                'Safe and reliable: container sealed transportation, fully trackable'
+                            ]
                         }
                     },
                     zh: {
@@ -866,75 +1038,6 @@
                             advantages: [
                                 '成本更优：较长途陆运显著降低综合物流成本',
                                 '安全可靠：集装箱密封运输，全程可追踪'
-                            ]
-                        }
-                    },
-                    en: {
-                        companyName: 'Guangdong Highway Global Supply Chain Co., Ltd.',
-                        menu: {
-                            home: 'Home',
-                            shippingAdvantage: 'Shipping Advantage',
-                            bulkCarrier: 'Bulk Carrier Service',
-                            specialContainer: 'Special Container',
-                            hongkongService: 'Hong Kong Shipping/Air Freight',
-                            domesticShipping: 'Domestic Shipping',
-                            contact: 'Contact us'
-                        },
-                        home: {
-                            content1: 'Guangdong Highway Supply Chain Co., Ltd. is a professional freight forwarding enterprise focusing on B2B import and export logistics services, dedicated to providing efficient, stable, and integrated comprehensive logistics solutions for domestic and foreign trade enterprises. The company mainly engages in multimodal transport businesses such as sea freight, air freight, and sea-rail intermodal transport. Relying on the profound industry foundation in South China, with Shenzhen, Guangzhou and the Pearl River Delta as the core advantage areas, the booking service network fully covers major ports in East and North China, including Qingdao, Dalian, Shanghai, Jiangsu, Tianjin, Xiamen and other key port hubs.',
-                            content2: 'In terms of inland intermodal transportation, the company\'s sea-rail intermodal service has extended to Hunan, Hubei, Chongqing, Sichuan, Guangxi, Jiangxi, Guizhou and other places, realizing efficient linkage between coastal ports and inland markets. At the same time, relying on mature channel resources and professional operation capabilities, it innovatively guides characteristic shipping modes such as WGO waterway gate combined port, Hong Kong empty-to-heavy drop, and road-to-water, effectively meeting customers\' diversified and personalized cross-border logistics needs.',
-                            content3: 'With the service concept of professionalism, reliability and efficiency, Highway Supply Chain integrates global logistics resources to tailor comprehensive, one-stop cross-border logistics solutions for foreign trade enterprises, helping customers reduce costs, improve timeliness, and smooth global trade.',
-                            content4: '',
-                            content5: ''
-                        },
-                        services: {
-                            shipping: 'Shipping',
-                            yachting: 'Yachting',
-                            construction: 'Building Construction'
-                        },
-                        contact: {
-                            title: 'Contact page',
-                            subtitle: 'LET\'S GET IN TOUCH WITH US',
-                            phone: 'TEL',
-                            mobile: 'Mobile',
-                            email: 'Email',
-                            address: 'Address',
-                            phoneDetail: '0756-8656536',
-                            mobileDetail: '+86-13418148857 (Add WhatsApp)',
-                            addressDetail: 'Room 905, Building 18, Xiangzhou INNOVATION HARBOR Center, No. 199 Weikang Road, Xiangzhou District, Zhuhai City, Guangdong Province',
-                            emailDetail: 'lean@highway-sc.com'
-                        },
-                        shippingAdvantage: {
-                            title: 'Shipping Advantage',
-                            content: 'The company has long been deeply involved in core shipping routes in Southeast Asia and Africa. Relying on stable and sufficient cargo volume advantages, it has established in-depth strategic cooperation with global leading shipping companies such as EMC, MSC, OOCL, CMA, and PIL, enjoying priority booking, stable space guarantee, and highly competitive favorable rates. In terms of route layout, Southeast Asia covers key countries and core ports such as Indonesia, Vietnam, Cambodia, Malaysia, and the Philippines; in the African region, it has long-term advantageous prices and exclusive channel resources at key ports such as Dar-es-Salaam and Mombasa.'
-                        },
-                        bulkCarrier: {
-                            title: 'Bulk Carrier Service',
-                            content: 'We professionally provide one-stop comprehensive logistics services for global bulk carriers, capable of undertaking transportation of bulk cargo, general cargo, steel, mechanical equipment, vehicles, and various oversized cargoes. The service covers major global routes. Relying on rich ship type resources and professional operation teams, the company can flexibly provide full ship, full cabin, and consolidated cabin services. The ships are equipped with ship cranes, which can adapt to various ports and remote port operations, effectively breaking through the limitations of containers in terms of size, weight, and loading form. With stable cargo volume and industry reputation, we maintain long-term cooperation with multiple high-quality shipowners, ensuring sufficient space and competitive rates.'
-                        },
-                        specialContainer: {
-                            title: 'Special Container',
-                            content1: 'Focusing on global booking business for special container cargo, deeply covering all types of containers such as open-top containers, flat-rack containers, platform containers, and refrigerated containers, precisely matching the export needs of various special-shaped, oversized, and heavy cargoes. Simultaneously providing full-chain integrated services such as door-to-door transportation of oversized/heavy equipment, professional lashing and reinforcement, standardized port operations, efficient customs declaration and inspection, and comprehensive cargo insurance, realizing closed-loop control and professional escort of goods from factory to destination port.',
-                            content2: 'Relying on a senior project logistics team, high-quality shipowner resources, and a mature port operation system, with safety as the foundation, efficiency as the criterion, and economy as the goal, we tailor exclusive heavy cargo transportation and special logistics solutions for enterprises such as engineering project construction, bulk commodity trade, and complete equipment export, fully ensuring cargo transportation safety, improving logistics efficiency, optimizing comprehensive costs, and helping customers\' cross-border business to reach efficiently and overseas projects to land steadily.'
-                        },
-                        hongkongService: {
-                            title: 'Hong Kong Shipping/Air Freight',
-                            content: 'Focusing on Hong Kong-origin sea and air freight dedicated lines, in-depth cooperation with well-known Hong Kong shipping companies and airlines; relying on the advantages of Hong Kong\'s free port, with dense routes, efficient customs clearance, and mature regulatory systems, undertaking high-demand export logistics such as dangerous goods and lithium battery goods, providing safe and reliable cross-border transportation solutions with standardized operations.'
-                        },
-                        domesticShipping: {
-                            title: 'Domestic Shipping',
-                            content1: 'Professionally providing domestic coastal and inland river container shipping services, covering one-stop logistics including door-to-door, port-to-port, space booking, trailer, packing and reinforcement, port operations, and comprehensive insurance.',
-                            content2: 'Core Services',
-                            coreServices: [
-                                'Full container shipping: 20GP/40GP/40HQ round-trip at national ports',
-                                'Special transportation: flat-rack containers and open-top containers for large equipment, steel and other heavy cargoes',
-                                'Door-to-door service: one-stop connection for pickup, loading, shipping, and delivery',
-                                'Supporting services: lashing and reinforcement, warehousing and transshipment, full-process tracking, cargo insurance'
-                            ],
-                            content3: 'Service Advantages',
-                            advantages: [
-                                'Better cost: significantly reduce comprehensive logistics costs compared to long-distance land transportation',
-                                'Safe and reliable: container sealed transportation, fully trackable'
                             ]
                         }
                     }
